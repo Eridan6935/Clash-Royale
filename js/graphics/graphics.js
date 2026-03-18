@@ -1,7 +1,3 @@
-function helloGraphics() {
-    console.log("Graphics and Assets Mechanics ready");
-}
-
 window.drawBridge = function(ctx) {
     const canvas = ctx.canvas;
     ctx.fillStyle = '#8b4513';
