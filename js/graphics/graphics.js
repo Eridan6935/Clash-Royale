@@ -1,7 +1,3 @@
-function helloGraphics() {
-    console.log("Graphics and Assets Mechanics ready");
-}
-
 window.drawRiver = function(ctx) {
     ctx.fillStyle = '#4169e1';
     ctx.globalAlpha = 0.3;
