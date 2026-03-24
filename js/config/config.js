@@ -2,12 +2,15 @@
 window.CONFIG = {
     // Пути к изображениям
     IMAGES: {
-        knight: 'assets/images/knight.png',
-        archer: 'assets/images/archer.png',
-        mage: 'assets/images/mage.png',
-        playerTower: 'assets/images/player_tower.png',
-        enemyTower: 'assets/images/enemy_tower.png',
-        kingTower: 'assets/images/king_tower.png'
+        path: 'assets/images/arena/path.png',
+        grass: 'assets/images/arena/grass.png',
+        river: 'assets/images/arena/river.png',
+        knight: 'assets/images/units/knight.png',
+        archer: 'assets/images/units/archer.png',
+        mage: 'assets/images/units/mage.png',
+        playerTower: 'assets/images/towers/player_tower.png',
+        enemyTower: '/assets/images/towers/enemy_tower.png',
+        kingTower: 'assets/images/towers/player_tower.png'
     },
     
     // Игровые параметры
