@@ -15,7 +15,7 @@ class Core {
         this.animationId = null;
     }
     
-    async init() {
+    init() {
         console.log('🎮 Инициализация игры...');
         
         // Инициализация компонентов
