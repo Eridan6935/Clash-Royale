@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Создание и запуск ядра игры
     const core = new Core(canvas, ctx);
-    await core.init();
+    core.init();
     
     // Глобальные объекты для доступа из консоли (для отладки)
     window.gameCore = core;
