@@ -1,45 +1,48 @@
 // Config Module - конфигурация игры
+// Этот модуль хранит все основные настройки и координаты объектов для игрового поля.
 window.Config = {
-    // Размеры канваса
+    // Размеры игрового канваса (холста)
     canvas: {
-        width: 900,
-        height: 600
+        width: 900,  // Ширина игрового поля в пикселях
+        height: 600  // Высота игрового поля в пикселях
     },
-    
-    // Координаты объектов
+
+    // Координаты и размеры всех игровых объектов
     coordinates: {
-        // Башни
-        playerTower: { x: 150, y: 520, width: 60, height: 70 },
-        enemyTower: { x: 750, y: 30, width: 60, height: 70 },
-        kingTower: { x: 450, y: 570, width: 70, height: 80 },
-        enemyKingTower: { x: 450, y: -20, width: 70, height: 80 },
-        
-        // Зоны спавна
+        // Башни: позиции и размеры башен игрока и противника
+        playerTower: { x: 150, y: 520, width: 60, height: 70 },      // Башня игрока (внизу слева)
+        enemyTower: { x: 750, y: 30, width: 60, height: 70 },        // Башня противника (вверху справа)
+        kingTower: { x: 450, y: 570, width: 70, height: 80 },        // Главная башня игрока (внизу по центру)
+        enemyKingTower: { x: 450, y: -20, width: 70, height: 80 },   // Главная башня противника (вверху по центру)
+
+        // Зоны спавна юнитов: области, где появляются существа игрока и врага
         spawnZones: {
-            player: { minX: 100, maxX: 800, y: 540 },
-            enemy: { minX: 100, maxX: 800, y: 60 }
+            player: { minX: 100, maxX: 800, y: 540 }, // Зона спавна игрока (внизу поля)
+            enemy: { minX: 100, maxX: 800, y: 60 }    // Зона спавна противника (вверху поля)
         },
-        
-        // Мост
+
+        // Мост: объект на карте, через который проходят юниты
         bridge: { x: 350, y: 285, width: 200, height: 15 },
-        
-        // Река
+
+        // Река: разделяет карту на две части
         river: { y: 295, height: 20 }
     },
-    
-    // Получить координаты объекта
+
+    // Получить координаты объекта по его имени (например, 'playerTower' или 'spawnZones.player')
     getCoords: function(objectName) {
-        const parts = objectName.split('.');
-        let obj = this.coordinates;
+        const parts = objectName.split('.'); // Разбиваем имя на части для вложенного доступа
+        let obj = this.coordinates;          // Начинаем с объекта coordinates
+
+        // Проходим по всем частям имени, чтобы найти нужный объект
         for (let part of parts) {
-            if (obj[part] === undefined) return null;
-            obj = obj[part];
+            if (obj[part] === undefined) return null; // Если часть не найдена — возвращаем null
+            obj = obj[part];                          // Переходим к следующему уровню вложенности
         }
-        return obj;
+        return obj; // Возвращаем найденный объект с координатами
     },
-    
-    // Проверка, на своей ли стороне клик
+
+    // Проверка, находится ли точка (по y-координате) на стороне игрока
     isPlayerSide: function(y) {
-        return y > this.canvas.height / 2;
+        return y > this.canvas.height / 2; // Если y больше половины высоты — это сторона игрока (нижняя часть)
     }
 };
